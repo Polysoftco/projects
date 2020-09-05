@@ -3,7 +3,6 @@ import { Modal, Card } from "react-bootstrap";
 import { Row, Col, FormGroup, Button } from "reactstrap";
 import {
   TextField,
-  FormControlLabel,
   Switch,
   Grid,
   Snackbar,
@@ -153,7 +152,6 @@ class AddCModal extends Component {
                                 checked={this.state.gilad}
                                 onChange={this.handleChange("gilad")}
                                 value={this.state.gilad}
-                                // value="gilad"
                               />
                               Passager
                             </Grid>
