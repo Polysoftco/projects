@@ -294,7 +294,7 @@ class AddBCModal extends Component {
                           <TextField
                             // className="card add-input"
                             id="standard-basic"
-                            label="№ BL"
+                            label="№ BC"
                             margin="normal"
                             //variant="outlined"
                             fullWidth

@@ -121,7 +121,10 @@ class FicheArticle extends Component {
       <div>
         <main className="gestion-des-articles">
           <div className="page-icon">
-            <i className="fas fa-cube"> Fiche Article</i>
+            <i className="fas fa-cube" style={{ fontSize: "25px" }}>
+              {" "}
+              Fiche Article
+            </i>
           </div>
           <br />
           <div>

@@ -158,7 +158,10 @@ class Nomenclature extends Component {
         <div className="page-icon">
           <u>
             {" "}
-            <i class="far fa-plus-square"> Nomenclature</i>
+            <i class="far fa-plus-square" style={{ fontSize: "25px" }}>
+              {" "}
+              Nomenclature
+            </i>
           </u>
         </div>
 

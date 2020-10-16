@@ -52,6 +52,17 @@ import getCodVDReducer from "./reducers/GetCodVD";
 import getValTimbreReducer from "./reducers/GetValTimbre";
 import getBSReducer from "./reducers/GetBS";
 import getBSCodReducer from "./reducers/GetBSCod";
+import getBLBReducer from "./reducers/GetBLBR";
+import getBLBCodReducer from "./reducers/GetBLBRcod";
+import GetBLBRLigReducer from "./reducers/GetBLBRLig";
+
+import GetAvoirClient from "./reducers/GetAvoirClient";
+import GetAvoirClientCod from "./reducers/GetAvoirCLientCod";
+import GetAvoirClientLig from "./reducers/GetAvoirClientLig";
+
+import GetReglementFournisseur from "./reducers/GetReglementFournisseur";
+import GetReglementFournisseurCod from "./reducers/GetReglementFournisseurCod";
+import GetReglementFournisseurLig from "./reducers/GetReglementFournisseurLig";
 
 const middleware = [thunkMiddlewar];
 const composeEnhancers =
@@ -75,7 +86,19 @@ const myStore = createStore(
     bcs: GetBCReducer,
     bcligs: GetBCLigModal,
     bls: GetBLReducer,
+    blbrs: getBLBReducer,
+    codblbr: getBLBCodReducer,
     blligs: GetBLLigReducer,
+    blbrligs: GetBLBRLigReducer,
+
+    rf: GetReglementFournisseur,
+    codrf: GetReglementFournisseurCod,
+    rfligs: GetReglementFournisseurLig,
+
+    avoirs: GetAvoirClient,
+    codavoirs: GetAvoirClientCod,
+    avoirsligs: GetAvoirClientLig,
+
     factures: GetFactureReducer,
     fligs: GetFactureLigReducer,
     nomes: GetNomeReducer,

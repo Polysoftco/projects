@@ -6,7 +6,7 @@ import {
   GET_CLIENTS_LIST,
   REMPLIR_DATA_TABLE,
   GET_FOURNISSEURS_HEADER,
-  GET_FOURNISSEURS_LIST
+  GET_FOURNISSEURS_LIST,
 } from "../../constants/actionTypes";
 const intialSatate = {
   articles: [],
@@ -15,14 +15,14 @@ const intialSatate = {
   dataTable: [],
   etat: "",
   fournisseurs: [],
-  elementDetails: []
+  elementDetails: [],
 };
 export const DataTablesReducer = (state = intialSatate, action) => {
   switch (action.type) {
     case GET_ELEMENT_DETAILS:
       return {
         ...state,
-        elementDetails: action.payload
+        elementDetails: action.payload,
       };
     case GET_ARTICLES_LIST:
       return {
@@ -31,8 +31,8 @@ export const DataTablesReducer = (state = intialSatate, action) => {
         articles: action.payload.map((el, index) => ({
           id: index,
           code: el.codart,
-          name: el.desart
-        }))
+          name: el.desart,
+        })),
       };
 
     case GET_FOURNISSEURS_LIST:
@@ -55,24 +55,24 @@ export const DataTablesReducer = (state = intialSatate, action) => {
           tauxFodec: el.tauxfodec,
           userType: el.psg,
           soldeFacture: el.soldfac,
-          soldeGlobal: el.soldfacbl
-        }))
+          soldeGlobal: el.soldfacbl,
+        })),
       };
 
     case GET_ARTICLES_HEADER:
       return {
         ...state,
-        tableHeader: action.payload
+        tableHeader: action.payload,
       };
     case GET_CLIENTS_HEADER:
       return {
         ...state,
-        tableHeader: action.payload
+        tableHeader: action.payload,
       };
     case GET_FOURNISSEURS_HEADER:
       return {
         ...state,
-        tableHeader: action.payload
+        tableHeader: action.payload,
       };
     case GET_CLIENTS_LIST:
       return {
@@ -102,8 +102,8 @@ export const DataTablesReducer = (state = intialSatate, action) => {
           userType: el.passager,
           soldeFacture: el.soldfac,
           soldeGlobal: el.soldfacbl,
-          representant: el.rep
-        }))
+          representant: el.rep,
+        })),
       };
     case REMPLIR_DATA_TABLE:
       return {
@@ -114,7 +114,7 @@ export const DataTablesReducer = (state = intialSatate, action) => {
             ? state.clients
             : state.etat === "article"
             ? state.articles
-            : state.fournisseurs
+            : state.fournisseurs,
       };
     default:
       return state;

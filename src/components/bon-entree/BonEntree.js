@@ -145,7 +145,11 @@ class BonEntree extends Component {
     return (
       <div>
         <div className="bl-icon">
-          <i class="fa fa-share" aria-hidden="true">
+          <i
+            class="fa fa-share"
+            aria-hidden="true"
+            style={{ fontSize: "25px" }}
+          >
             {" "}
             Bon d'Entrée
           </i>

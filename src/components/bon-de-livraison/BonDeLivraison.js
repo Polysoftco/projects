@@ -145,7 +145,10 @@ class BonDeLivraison extends Component {
     return (
       <div>
         <div className="bl-icon">
-          <i class="fas fa-list-alt"> Bon de Livraison</i>
+          <i class="fas fa-list-alt" style={{ fontSize: "25px" }}>
+            {" "}
+            Bon de Livraison
+          </i>
         </div>
         <br />
         <div>

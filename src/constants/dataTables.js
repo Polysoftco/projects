@@ -76,6 +76,16 @@ export const sidebarContent = [
         title: "Facture",
         icon: <i className="fas fa-file-invoice-dollar"></i>,
       },
+      {
+        id: 4,
+        title: "Avoir Client",
+        icon: <i className="far fa-sticky-note"></i>,
+      },
+      {
+        id: 5,
+        title: "Bon De Retour",
+        icon: <i className="far fa-sticky-note"></i>,
+      },
     ],
     icon: <i class="fas fa-money-check-alt"></i>,
     isOpen: false,
@@ -114,6 +124,11 @@ export const sidebarContent = [
       {
         id: 0,
         title: "Reglement",
+        icon: <i className="fab fa-dashcube"></i>,
+      },
+      {
+        id: 1,
+        title: "Reglement Fournisseur",
         icon: <i className="fab fa-dashcube"></i>,
       },
     ],

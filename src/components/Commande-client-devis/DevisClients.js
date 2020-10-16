@@ -143,7 +143,10 @@ class DevisClient extends Component {
     return (
       <div>
         <div className="page-icon">
-          <i class="fas fa-tasks"> Devis client</i>
+          <i class="fas fa-tasks" style={{ fontSize: "25px" }}>
+            {" "}
+            Devis client
+          </i>
         </div>
         <br />
         <div>

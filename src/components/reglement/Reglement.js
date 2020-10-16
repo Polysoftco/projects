@@ -136,7 +136,10 @@ class Reglement extends Component {
     return (
       <div>
         <div className="bl-icon">
-          <i className="fab fa-dashcube"> Règlement Client</i>
+          <i className="fab fa-dashcube" style={{ fontSize: "25px" }}>
+            {" "}
+            Règlement Client
+          </i>
         </div>
         <br />
         <div>

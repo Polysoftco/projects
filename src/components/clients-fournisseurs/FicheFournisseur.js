@@ -86,7 +86,10 @@ class FicheFournisseur extends Component {
       <div>
         <main className="gestion-des-clients">
           <div className="page-icon">
-            <i className="fas fa-shopping-cart"> Fiche Fournisseur</i>
+            <i className="fas fa-shopping-cart" style={{ fontSize: "25px" }}>
+              {" "}
+              Fiche Fournisseur
+            </i>
           </div>
           <br />
           <Row>

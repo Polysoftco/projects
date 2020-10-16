@@ -143,6 +143,7 @@ class AddBLModal extends Component {
 
   enregistrer = (event) => {
     event.preventDefault();
+    let id = event.target.codbl.value;
 
     this.state.tab.map((k, index) => {
       for (var i = 0; i < this.state.tab.length; i++) {
@@ -201,32 +202,13 @@ class AddBLModal extends Component {
           this.setState({ snackbaropen: true, snackbarmsg: result });
           this.props.SelectBLCod();
           console.log(result);
-          window.location.reload();
+          // window.location.reload();
         },
         (error) => {
           this.setState({ snackbaropen: true, snackbarmsg: "failed" });
         }
       );
-
-    fetch(
-      `http://192.168.1.100:81/api/LigBLBRs?FAC=${event.target.codbl.value}&Typfacc=bl&CODDEPP=`,
-      {
-        method: "POST",
-        header: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-        },
-        (error) => {
-          this.setState({ snackbaropen: true, snackbarmsg: "failed" });
-        }
-      );
+    console.log("loggggg", event.target.codbl.value);
 
     //////////// switch update ////////////////
 
@@ -251,6 +233,30 @@ class AddBLModal extends Component {
           this.setState({ snackbaropen: true, snackbarmsg: "failed" });
         }
       );
+
+    setTimeout(() => {
+      fetch(
+        `http://192.168.1.100:81/api/LigBLBRs?FAC=${id}&Typfacc=bl&CODDEPP=`,
+        {
+          method: "POST",
+          header: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            console.log(result);
+          },
+          (error) => {
+            this.setState({ snackbaropen: true, snackbarmsg: "failed" });
+          }
+        );
+
+      window.location.reload();
+    }, 2000);
   };
 
   clientHandlerChange = (event) => {
@@ -259,6 +265,7 @@ class AddBLModal extends Component {
       .then((data) => this.setState({ rechs: data, clicked: true }));
   };
   render() {
+    console.log("test", this.props.codbls.codbls);
     const { dvnumfac, dvraisoc, rem, clientmail } = this.state;
 
     let addModalClose1 = () => this.setState({ addModalShow1: false });

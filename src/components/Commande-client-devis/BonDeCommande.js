@@ -146,7 +146,10 @@ class BonDeCommande extends Component {
     return (
       <div>
         <div className="bc-icon">
-          <i class="fas fa-clipboard-list"> Bon de commande</i>
+          <i class="fas fa-clipboard-list" style={{ fontSize: "25px" }}>
+            {" "}
+            Bon de commande
+          </i>
         </div>
         <br />
         <div>

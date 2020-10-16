@@ -138,7 +138,10 @@ class Facture extends Component {
     return (
       <div>
         <div className="f-icon">
-          <i class="fas fa-file-invoice-dollar"> Facture</i>
+          <i class="fas fa-file-invoice-dollar" style={{ fontSize: "25px" }}>
+            {" "}
+            Facture
+          </i>
         </div>
         <br />
         <div>

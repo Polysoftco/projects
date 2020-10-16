@@ -313,7 +313,10 @@ class Personnel extends Component {
         <div className="page-icon">
           <u>
             {" "}
-            <i class="fas fa-users"> Vendeurs</i>
+            <i class="fas fa-users" style={{ fontSize: "25px" }}>
+              {" "}
+              Vendeurs
+            </i>
           </u>
         </div>
         <br />

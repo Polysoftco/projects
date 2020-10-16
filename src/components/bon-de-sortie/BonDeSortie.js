@@ -147,7 +147,11 @@ class BonDeSortie extends Component {
     return (
       <div>
         <div className="bc-icon">
-          <i class="fa fa-reply" aria-hidden="true">
+          <i
+            class="fa fa-reply"
+            aria-hidden="true"
+            style={{ fontSize: "25px" }}
+          >
             {" "}
             Bon de sortie
           </i>

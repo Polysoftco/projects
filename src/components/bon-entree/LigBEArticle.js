@@ -20,12 +20,16 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import Switch from "@material-ui/core/Switch";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import ADDNumSerie from "./ADDNumSerie";
 
 const roundTo = require("round-to");
 
 class LigBEArticle extends Component {
   constructor(props) {
     super(props);
+
+    this.handleChangeModal = this.handleChangeModal.bind(this);
+
     this.state = {
       codearticle: "",
       qte: "",
@@ -33,6 +37,8 @@ class LigBEArticle extends Component {
       des: "",
       unite: "",
       puht: "",
+      addModalShow: false,
+      // addModalClose1: false,
       remisea: 0,
       tva: 0,
       puttcnet: 0,
@@ -64,6 +70,11 @@ class LigBEArticle extends Component {
   componentDidMount() {
     this.props.SelectArticle();
   }
+  handleChangeModal = (event) => {
+    if (event.key === "Enter") {
+      this.setState({ addModalShow: true });
+    }
+  };
 
   articleHandlerChange = (event) => {
     fetch(`http://192.168.1.100:81/api/ARTICLEs?codartt=${event.target.value}`)
@@ -173,7 +184,6 @@ class LigBEArticle extends Component {
 
   submitHandlers = (event) => {
     event.preventDefault();
-
     const newtab = this.state.tab.concat({
       codearticle: this.state.codearticle,
       des: this.state.des,
@@ -182,6 +192,7 @@ class LigBEArticle extends Component {
       puht: this.state.puht,
       faudec: this.state.faudec,
       remisea: event.target.remisea.value,
+
       tva: this.state.tva,
       puttcnet: this.state.puttcnet,
       totalht: this.state.totalht,
@@ -253,7 +264,13 @@ class LigBEArticle extends Component {
   };
 
   render() {
+    console.log(
+      "test article numero " + this.state.codearticle + "       " + "ffsdfsd"
+    );
     let editModalClose = () => this.setState({ editModalShow: false });
+    let addModalClose1 = () => this.setState({ addModalShow: false });
+
+    // let getModalClose = () => this.setState({ ADDNumSerie: false });
 
     // console.log(
     //   this.state.totalqte,
@@ -400,6 +417,10 @@ class LigBEArticle extends Component {
                                         faudec: "N",
                                         stkfin: 0,
                                       });
+
+                                  this.setState({
+                                    codearticle: getOptionLabel.codart,
+                                  });
                                 }}
                                 renderInput={(params) => (
                                   <TextField
@@ -408,6 +429,7 @@ class LigBEArticle extends Component {
                                     margin="normal"
                                     fullWidth
                                     onChange={this.articleHandlerChange}
+                                    onKeyDown={this.handleChangeModal}
                                   />
                                 )}
                               />
@@ -435,6 +457,7 @@ class LigBEArticle extends Component {
                                         tva: getOptionLabel.tautva,
                                         faudec: getOptionLabel.typfodec,
                                         stkfin: getOptionLabel.stkfin,
+                                        addModalShow: true,
                                       })
                                     : this.setState({
                                         codearticle: "",
@@ -446,6 +469,7 @@ class LigBEArticle extends Component {
                                         tva: 0,
                                         faudec: "N",
                                         stkfin: 0,
+                                        addModalShow: false,
                                       });
                                 }}
                                 renderInput={(params) => (
@@ -466,6 +490,12 @@ class LigBEArticle extends Component {
                           <Input
                             type="text"
                             value={this.state.codearticle}
+                            // onChange={() =>
+                            //this.setState({ addModalShow: true })
+                            // }
+                            onChange={() =>
+                              this.setState({ addModalShow: true })
+                            }
                             disabled
                           />
                         </FormGroup>
@@ -490,12 +520,18 @@ class LigBEArticle extends Component {
                                 value={this.state.codearticle}
                                 disabled
                                 margin="normal"
+                                onClick={this.handleChangeModal}
                                 fullWidth
                               />
                             </FormGroup>
                           )}
                         </Col>
 
+                        <ADDNumSerie
+                          show={this.state.addModalShow}
+                          onHide={addModalClose1}
+                          test={this.state.codearticle}
+                        />
                         <Col sm={2}>
                           <FormGroup>
                             {this.state.des === "" ? (
@@ -743,6 +779,17 @@ class LigBEArticle extends Component {
             >
               Enregistrer
             </Button>
+            <Col sm={2} style={{ marginTop: "-15px" }}>
+              <div id="" style={{ textAlign: "center" }}>
+                <button
+                  className="icon-btn add-btn"
+                  onClick={() => this.setState({ addModalShow: true })}
+                >
+                  <div className="add-icon"></div>
+                  <div className="btn-txt">Ajouter BE</div>
+                </button>
+              </div>
+            </Col>
             {/* ))
               // )
             } */}

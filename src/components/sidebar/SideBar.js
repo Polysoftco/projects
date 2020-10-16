@@ -5,7 +5,6 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./SideBar.scss";
-
 const SideBar = (props) => {
   const fctt = localStorage.getItem("fct");
   const tokenn = localStorage.getItem("token");
@@ -14,24 +13,25 @@ const SideBar = (props) => {
 
   return (
     <div className={classNames("sidebar", { "is-open": props.isOpen })}>
-      <div className="sidebar-header">
+      {/* <div className="sidebar-header">
         <span color="info" onClick={props.toggle} style={{ color: "#fff" }}>
           &times;
         </span>
-
-        <h3 style={{ fontFamily: "cursive" }}>AYOOLA</h3>
-      </div>
+        &nbsp;&nbsp;&nbsp;
+        <Link to={"/homepage"}>
+          <img src="/images/logo.png" alt="Logo" width="200" height="70" />
+        </Link>
+      </div> */}
       <div className="side-menu">
         <Nav vertical className="list-unstyled pb-3">
           <div>
             {fct === "100" ? (
               <Link to={"/homepage"} className="title" onClick={props.toggle}>
-                <NavItem style={{ paddingLeft: "27px" }}>
-                  <i class="fas fa-chart-bar"> DashBoard</i>
+                <NavItem style={{ fontSize: "16px", paddingLeft: "27px" }}>
+                  <i class="fas fa-chart-bar"> &nbsp;&nbsp;DashBoard</i>
                 </NavItem>
               </Link>
             ) : null}
-
             {props.SideBarTitles.sidebar.map((el, index) => (
               <SubMenu
                 key={index}
@@ -41,7 +41,7 @@ const SideBar = (props) => {
               />
             ))}
 
-            {fct === "100" ? (
+            {/* {fct === "100" ? (
               <Link
                 to={"/clicktocall"}
                 className="title"
@@ -52,19 +52,46 @@ const SideBar = (props) => {
                   <span style={{ marginLeft: "17px" }}>Click To Call</span>
                 </NavItem>
               </Link>
-            ) : null}
-
+            ) : null} */}
             {fct === "100" ? (
-              <Link to={"/personnel"} className="title" onClick={props.toggle}>
+              <Link
+                to={"/fiche-fournisseur"}
+                className="title"
+                onClick={props.toggle}
+              >
                 <NavItem style={{ fontSize: "16px", paddingLeft: "27px" }}>
-                  <i class="fas fa-users"></i>{" "}
-                  <span style={{ marginLeft: "17px" }}>Vendeurs</span>
+                  <i class="fas fa-user-friends"></i>{" "}
+                  <span style={{ marginLeft: "17px" }}>Fournisseur</span>
                 </NavItem>
               </Link>
             ) : (
               <h3></h3>
             )}
-
+            {fct === "100" ? (
+              <Link
+                to={"/fiche-client"}
+                className="title"
+                onClick={props.toggle}
+              >
+                <NavItem style={{ fontSize: "16px", paddingLeft: "27px" }}>
+                  <i class="fas fa-user-tie"></i>{" "}
+                  <span style={{ marginLeft: "17px" }}>&nbsp;Client</span>
+                </NavItem>
+              </Link>
+            ) : (
+              <h3></h3>
+            )}
+            {fct === "100" ? (
+              <Link to={"/personnel"} className="title" onClick={props.toggle}>
+                <NavItem style={{ fontSize: "16px", paddingLeft: "27px" }}>
+                  <i class="fas fa-users"></i>{" "}
+                  <span style={{ marginLeft: "17px" }}>Commercial</span>
+                </NavItem>
+              </Link>
+            ) : (
+              <h3></h3>
+            )}
+            <br />
             <br />
             <a to="" href="https://polysoftco.tn">
               <NavItem style={{ fontSize: "16px", paddingLeft: "20px" }}>
@@ -72,7 +99,6 @@ const SideBar = (props) => {
                 <span style={{ marginLeft: "17px" }}>Polysoft&CO.tn</span>
               </NavItem>
             </a>
-
             <Link to={"/contact"} onClick={props.toggle}>
               <NavItem>
                 <NavItem style={{ fontSize: "16px", paddingLeft: "12px" }}>

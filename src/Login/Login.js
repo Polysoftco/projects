@@ -5,8 +5,10 @@ import LockOpenIcon from "@material-ui/icons/LockOpen";
 import { Fab, TextField } from "@material-ui/core";
 import Center from "react-center";
 import { Snackbar } from "@material-ui/core";
-import image1 from "./k.jpg";
-import image2 from "./k1.jpeg";
+import image2 from "./AY23.jpg";
+import image1 from "./AY2.jpg";
+import imagebackground from "./A1.jpg";
+import logo from "./logo.png";
 import image5 from "./contactsyros.png";
 import { connect } from "react-redux";
 import { GetDBFolder } from "../redux/actions/GetDBFolders";
@@ -94,7 +96,14 @@ class Login extends Component {
     }
 
     return (
-      <div>
+      <div
+        style={{
+          background:
+            "linear-gradient(to left,rgb(230,230,230)20%, rgb(70,130,180)98% ",
+        }}
+      >
+        {/* <img className="bg" src={image2} /> */}
+
         <Snackbar
           open={this.state.snackbaropen}
           autoHideDuration={3000}
@@ -121,26 +130,26 @@ class Login extends Component {
                       <img
                         style={{ height: "97vh", width: "100%" }}
                         className="d-block w-100"
-                        src={image1}
+                        src={imagebackground}
                         alt="First slide"
                       />
                       <Carousel.Caption>
-                        <p style={{ color: "white", fontSize: "100px" }}>
-                          AYOOLA
-                        </p>
-                        <p style={{ color: "white", fontSize: "50px" }}>
+                        <img className="logo" src={logo} />
+                        <br></br>
+
+                        <pml style={{ color: "white", fontSize: "50px" }}>
                           Gestion commercial
-                        </p>
+                        </pml>
                       </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                       <img
                         style={{ height: "97vh", width: "100%" }}
                         className="d-block w-100"
-                        src={image2}
+                        src={imagebackground}
                         alt="First slide"
                       />
-                      <Carousel.Caption style={{ marginTop: "-250px" }}>
+                      <Carousel.Caption style={{ marginTop: "7%" }}>
                         <p style={{ color: "white", fontSize: "50px" }}>
                           Gérer vos affaires
                         </p>
@@ -152,32 +161,22 @@ class Login extends Component {
                           }}
                         >
                           <li>
-                            Vente <span>✔</span>
+                            <pml>✔</pml>&nbsp;&nbsp;Vente
                           </li>
                           <li>
-                            Achat <span>✔</span>
+                            <pml>✔</pml>&nbsp;&nbsp;Achat
                           </li>
                           <li>
-                            Facture <span>✔</span>
+                            <pml>✔</pml>&nbsp;&nbsp;Facture
                           </li>
                           <li>
-                            Statéstiques <span>✔</span>
+                            <pml>✔</pml>&nbsp;&nbsp;Statéstiques
                           </li>
                           <li>
-                            Analyse <span>✔</span>
+                            <pml>✔</pml> &nbsp;&nbsp;Analyse
                           </li>
                         </ul>
                       </Carousel.Caption>
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                      <img
-                        style={{ height: "97vh", width: "100%" }}
-                        className="d-block w-100"
-                        src={image5}
-                        alt="First slide"
-                      />
-                      <Carousel.Caption></Carousel.Caption>
                     </Carousel.Item>
                   </Carousel>
                 </div>
@@ -197,7 +196,7 @@ class Login extends Component {
                     <Center>
                       <div
                         style={{
-                          backgroundColor: "rgb(220, 0, 78)",
+                          backgroundColor: "rgb(255,69,0)",
                           color: "white",
                           width: "50px",
                           height: "50px",

@@ -1,0 +1,262 @@
+.tabbl2 {
+  tr {
+    display: flex;
+  }
+  tr:nth-of-type(even) {
+    background: #eee;
+  }
+
+  td,
+  th {
+    display: flex;
+    width: 9%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    span {
+      font-size: 12px;
+    }
+  }
+  th {
+    background: #b8d0e8;
+    color: #020f64;
+    // background: #020f64;
+    // color: #b8d0e8;
+  }
+  table {
+    height: fit-content;
+    thead {
+      display: table;
+      background: #b8d0e8;
+      color: #020f64;
+      table-layout: fixed;
+      width: 100%;
+    }
+    tbody {
+      overflow-y: auto;
+      display: block;
+      max-height: 22em;
+
+      tr:hover {
+        animation: tdanimation 1s infinite;
+        animation-direction: alternate;
+        animation-delay: 0s;
+        background-color: #6c757d75;
+        span:hover {
+          color: #17a2b8;
+        }
+      }
+    }
+  }
+}
+
+.tabbl {
+  tr {
+    display: flex;
+  }
+  tr:nth-of-type(even) {
+    background: #eee;
+  }
+
+  td,
+  th {
+    display: flex;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    span {
+      font-size: 13px;
+    }
+  }
+  th {
+    background: #b8d0e8;
+    color: #020f64;
+  }
+  table {
+    height: fit-content;
+    thead {
+      display: table;
+      background: #b8d0e8;
+      color: #020f64;
+      table-layout: fixed;
+      width: 100%;
+    }
+    tbody {
+      overflow-y: auto;
+      display: block;
+      max-height: 33em;
+
+      tr:hover {
+        animation: tdanimation 1s infinite;
+        animation-direction: alternate;
+        animation-delay: 0s;
+        background-color: #6c757d75;
+        span:hover {
+          color: #17a2b8;
+        }
+      }
+    }
+  }
+}
+/* 
+    Max width before this PARTICULAR table gets nasty
+    This query will take effect for any screen smaller than 760px
+    and also iPads specifically.
+    */
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  .tabbl2 {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      border: 1px solid #ccc;
+    }
+    tr:nth-of-type(even) {
+      background: #eee;
+    }
+
+    td {
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+      width: auto;
+    }
+
+    td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    /*
+        Label the data
+        */
+    td:nth-of-type(1):before {
+      content: "Article";
+    }
+    td:nth-of-type(2) {
+      content: "Désignation";
+      display: none;
+    }
+    td:nth-of-type(3):before {
+      content: "Quantité";
+    }
+    // td:nth-of-type(4):before {
+    //   content: "Unité";
+    // }
+    td:nth-of-type(4):before {
+      content: "PU HT";
+    }
+
+    td:nth-of-type(5):before {
+      content: "Remise";
+    }
+    td:nth-of-type(6):before {
+      content: "TVA";
+    }
+    td:nth-of-type(7):before {
+      content: "Total HT";
+    }
+    td:nth-of-type(8):before {
+      content: "PUNet";
+    }
+  }
+  .tabbl {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      border: 1px solid #ccc;
+    }
+    tr:nth-of-type(even) {
+      background: #eee;
+    }
+
+    td {
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+      width: auto;
+    }
+
+    td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    /*
+        Label the data
+        */
+    td:nth-of-type(1):before {
+      content: "№";
+    }
+    td:nth-of-type(2):before {
+      content: "Date";
+    }
+    // td:nth-of-type(3):before {
+    //   content: "Code client";
+    // }
+    // td:nth-of-type(4):before {
+    //   content: "Raison Sociale";
+    // }
+    td:nth-of-type(3):before {
+      content: "Code Client";
+    }
+    td:nth-of-type(4) {
+      display: none;
+    }
+    td:nth-of-type(5):before {
+      content: "Facturé";
+    }
+    td:nth-of-type(6):before {
+      content: "Montant";
+    }
+  }
+}

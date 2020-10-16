@@ -83,7 +83,10 @@ class FicheClient extends Component {
       <div>
         <main className="gestion-des-clients">
           <div className="page-icon">
-            <i className="fas fa-user"> Fiche client</i>
+            <i className="fas fa-user" style={{ fontSize: "25px" }}>
+              {" "}
+              Fiche client
+            </i>
           </div>
           <br />
           <Row>
